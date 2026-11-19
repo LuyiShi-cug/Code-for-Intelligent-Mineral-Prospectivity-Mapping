@@ -1,0 +1,1 @@
+# Code-for-Intelligent-Mineral-Prospectivity-Mapping
