@@ -1,0 +1,9 @@
+{
+  "group": "GCN-Transformer_SSL",
+  "repeat": 10,
+  "seed": 20261121,
+  "best_epoch": 187,
+  "stopped_epoch": 202,
+  "best_validation_loss": 1.1378909349441528,
+  "checkpoint": "external_path_omitted"
+}

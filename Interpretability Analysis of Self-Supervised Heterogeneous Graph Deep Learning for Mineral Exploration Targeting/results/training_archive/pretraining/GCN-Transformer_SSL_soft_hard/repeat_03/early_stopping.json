@@ -1,0 +1,9 @@
+{
+  "group": "GCN-Transformer_SSL_soft_hard",
+  "repeat": 3,
+  "seed": 20261114,
+  "best_epoch": 166,
+  "stopped_epoch": 181,
+  "best_validation_loss": 1.1832407712936401,
+  "checkpoint": "external_path_omitted"
+}

@@ -1,0 +1,9 @@
+{
+  "monitor": "five-epoch moving mean of training nnPU risk; not a generalization validation metric",
+  "best_epoch": 157,
+  "stopped_epoch": 172,
+  "best_monitor": 0.0021679926430806518,
+  "patience": 15,
+  "min_delta": 0.0001,
+  "min_epochs": 30
+}

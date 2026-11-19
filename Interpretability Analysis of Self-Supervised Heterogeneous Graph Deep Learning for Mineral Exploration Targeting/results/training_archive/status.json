@@ -1,0 +1,7 @@
+{
+  "status": "complete",
+  "completed_pretraining_runs": 40,
+  "expected_pretraining_runs": 40,
+  "completed_finetuning_runs": 700,
+  "expected_finetuning_runs": 700
+}

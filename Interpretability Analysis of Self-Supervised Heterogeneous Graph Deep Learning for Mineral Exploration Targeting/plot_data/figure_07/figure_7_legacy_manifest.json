@@ -1,0 +1,12 @@
+{
+  "scope": "target-union anchors with complete legacy attributions",
+  "anchor_count": 556,
+  "known_deposit_count": 31,
+  "feature_count": 10,
+  "features": ["Cr", "Ni", "Yt", "Cu", "Pb", "Au", "U", "CaO", "Grav0_F", "Mag0_F"],
+  "method": "Stored per-anchor Integrated Gradients from the legacy interpretation run",
+  "plot": "standardized input versus Integrated Gradient; gray target-union anchors and orange known deposits",
+  "plot_data": "plot_data/figure_07/plot_points.csv",
+  "feature_selection": "plot_data/figure_07/feature_selection.csv",
+  "figure": "figures/figure_07/figure_7_legacy_local_ig.tif"
+}

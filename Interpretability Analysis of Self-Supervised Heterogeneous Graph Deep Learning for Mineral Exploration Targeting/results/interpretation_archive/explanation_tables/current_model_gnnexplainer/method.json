@@ -1,0 +1,17 @@
+{
+  "method": "Per-target-anchor differentiable entity-node masks using the selected current SSL-GGL checkpoint",
+  "checkpoint_group": "GCN-Transformer_SSL_soft_hard",
+  "repeat": 6,
+  "seed": 20271117,
+  "checkpoint_best_epoch": 86,
+  "target_anchor_count": 556,
+  "entity_node_count": 598,
+  "epochs_per_anchor": 8,
+  "learning_rate": 0.01,
+  "mask_scope": "intrusion, carbonate, and contact entity node features; anchor features and graph structure unchanged",
+  "hard_constraints": "held at observed values through model_forward(hard=True); no mask optimized for hard-constraint channels",
+  "loss": "squared target-logit fidelity + mean-mask sparsity + 0.1 * mask entropy",
+  "plot_rule": "average entity masks across target-union anchors; top 25% within each entity type; rank all features by absolute median input contrast",
+  "elapsed_seconds": 2057.83,
+  "limitation": "Model sensitivity under entity-feature suppression, not geological causation."
+}

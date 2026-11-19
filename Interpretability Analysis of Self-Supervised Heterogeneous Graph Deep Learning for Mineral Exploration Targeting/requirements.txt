@@ -1,0 +1,13 @@
+# Verified with Python 3.12.4 in the PytorchGDAL environment.
+# The current training environment uses PyTorch 2.4.0 with CUDA 12.4.
+numpy==1.26.4
+pandas==2.2.3
+matplotlib==3.8.4
+scipy==1.14.1
+scikit-learn==1.5.2
+torch==2.4.0
+torch-geometric==2.6.0
+nbformat==5.10.4
+ipython==8.28.0
+ipykernel==7.2.0
+jupyterlab==4.5.6

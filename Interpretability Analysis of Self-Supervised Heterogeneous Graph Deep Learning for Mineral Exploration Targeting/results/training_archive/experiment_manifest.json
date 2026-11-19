@@ -1,0 +1,144 @@
+{
+  "experiment": "Seven-way two-layer GCN and GCN-Transformer comparison with early stopping",
+  "source_main_experiment": "external_path_omitted",
+  "graph_file": "external_path_omitted",
+  "graph_sha256": "198760ca17d6e65b40e0c775ad4684ef62d54c194d62b4fb6aceafea2cd57ebc",
+  "device": "NVIDIA GeForce RTX 4060 Ti",
+  "model_config": {
+    "input_dim": 41,
+    "chemical_dim": 39,
+    "geophysics_target_dim": 2,
+    "hidden_dim": 64,
+    "attention_heads": 4,
+    "attention_query_block": 512,
+    "encoder_layers": 2,
+    "dropout": 0.1,
+    "node_type_count": 4,
+    "node_type_names": [
+      "anchor",
+      "intrusion",
+      "carbonate",
+      "contact"
+    ],
+    "relation_count": 7,
+    "edge_output_dim": 1
+  },
+  "groups": {
+    "GCN_anchor_only": {
+      "encoder": "gcn",
+      "graph": "anchor_only",
+      "pretrain": false,
+      "soft": false,
+      "hard": false
+    },
+    "GCN_heterogeneous": {
+      "encoder": "gcn",
+      "graph": "heterogeneous",
+      "pretrain": false,
+      "soft": false,
+      "hard": false
+    },
+    "GCN-Transformer_direct": {
+      "encoder": "hybrid",
+      "graph": "heterogeneous",
+      "pretrain": false,
+      "soft": false,
+      "hard": false
+    },
+    "GCN-Transformer_SSL": {
+      "encoder": "hybrid",
+      "graph": "heterogeneous",
+      "pretrain": true,
+      "soft": false,
+      "hard": false
+    },
+    "GCN-Transformer_SSL_soft": {
+      "encoder": "hybrid",
+      "graph": "heterogeneous",
+      "pretrain": true,
+      "soft": true,
+      "hard": false
+    },
+    "GCN-Transformer_SSL_hard": {
+      "encoder": "hybrid",
+      "graph": "heterogeneous",
+      "pretrain": true,
+      "soft": false,
+      "hard": true
+    },
+    "GCN-Transformer_SSL_soft_hard": {
+      "encoder": "hybrid",
+      "graph": "heterogeneous",
+      "pretrain": true,
+      "soft": true,
+      "hard": true
+    }
+  },
+  "graph_edge_counts": {
+    "anchor_only": 122796,
+    "heterogeneous": 165260
+  },
+  "pretraining": {
+    "maximum_epochs": 500,
+    "groups": [
+      "GCN-Transformer_SSL",
+      "GCN-Transformer_SSL_soft",
+      "GCN-Transformer_SSL_hard",
+      "GCN-Transformer_SSL_soft_hard"
+    ],
+    "reuse": "one checkpoint per group and seed reused at all ten positive fractions"
+  },
+  "finetuning_maximum_epochs": 500,
+  "early_stopping": {
+    "pretraining_monitor": "sum of fixed held-out relation reconstruction cross entropy and feature reconstruction loss; held-out edges excluded from validation message passing",
+    "finetuning_monitor": "five-epoch moving mean of training nnPU risk; not a generalization validation metric",
+    "patience": 15,
+    "min_delta": 0.0001,
+    "minimum_epochs": 30
+  },
+  "fractions_percent": [
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70,
+    80,
+    90,
+    100
+  ],
+  "sampled_positive_counts": {
+    "10": 4,
+    "20": 7,
+    "30": 11,
+    "40": 14,
+    "50": 18,
+    "60": 22,
+    "70": 25,
+    "80": 29,
+    "90": 32,
+    "100": 36
+  },
+  "seeds": [
+    20261112,
+    20261113,
+    20261114,
+    20261115,
+    20261116,
+    20261117,
+    20261118,
+    20261119,
+    20261120,
+    20261121
+  ],
+  "repeats": 10,
+  "sampling": "Same permutation and nested positive subsets are shared across all seven methods for each seed.",
+  "metrics": [
+    "resubstitution ROC-AUC",
+    "tie-aware success-rate curve AUC",
+    "known-deposit capture at 5%, 10%, and 20% of study area"
+  ],
+  "evaluation_scope": "All 36 known deposits are evaluated in every run, including those sampled for training; in-sample ranking/capture, not independent spatial validation.",
+  "status": "complete"
+}

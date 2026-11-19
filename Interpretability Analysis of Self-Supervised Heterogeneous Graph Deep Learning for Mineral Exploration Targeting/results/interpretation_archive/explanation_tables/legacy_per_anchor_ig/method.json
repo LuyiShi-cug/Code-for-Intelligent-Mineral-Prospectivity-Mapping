@@ -1,0 +1,20 @@
+{
+  "method": "Legacy per-anchor-logit Integrated Gradients with 32-step midpoint integration and centered finite differences",
+  "integration_steps": 32,
+  "finite_difference_step": 0.01,
+  "target": "individual prospectivity logit for each anchor in the union of four target polygons",
+  "target_anchor_count": 556,
+  "known_positive_count_in_target_union": 31,
+  "baseline": "per-node-type mean of the 41 input feature channels",
+  "hard_constraints": "three hard-constraint layers are held at their observed values throughout the path and are not attributed",
+  "perturbation": "one feature channel is jointly shifted over all graph nodes, matching the archived legacy calculation",
+  "mean_absolute_completeness_error": 0.0023280347851540543,
+  "p95_absolute_completeness_error": 0.005281925201416016,
+  "selected_checkpoint": {
+    "group": "GCN-Transformer_SSL_soft_hard",
+    "repeat": 6,
+    "seed": 20271117
+  },
+  "interpretation_note": "Feature-wise IG dependence is an attribution diagnostic, not a Pearson/Spearman correlation or a causal effect.",
+  "elapsed_seconds": 0.0
+}

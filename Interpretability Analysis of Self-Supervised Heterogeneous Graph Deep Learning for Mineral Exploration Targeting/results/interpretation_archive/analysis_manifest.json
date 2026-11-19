@@ -1,0 +1,69 @@
+{
+  "selected_model": "SSL-GGL",
+  "repeat": 6,
+  "seed": 20271117,
+  "selection_rule": "Among the ten reconstructed SSL-GGL checkpoints, sort by descending capture_area_10_percent, then descending success_rate_curve_auc_reconstructed; deterministic tie-break by repeat ascending.",
+  "reconstructed_metrics": {
+    "capture_area_10_percent": 100.0,
+    "success_rate_curve_auc": 0.9927474097892104
+  },
+  "original_experiment_best": {
+    "repeat": 5,
+    "seed": 20271116,
+    "capture_area_10_percent": 100.0,
+    "success_rate_curve_auc": 0.993192,
+    "note": "Original fine-tuned checkpoint was not saved; this model was not available for the new IG analysis."
+  },
+  "score_recomputation_check": {
+    "saved_success_rate_curve_auc": 0.9927474097892104,
+    "recomputed_success_rate_curve_auc": 0.9927474097892104,
+    "saved_capture_area_10_percent": 100.0,
+    "recomputed_capture_area_10_percent": 100.0,
+    "max_absolute_score_difference": 0.007589787244796753,
+    "tolerance": "AUC difference <= 1e-5 and exact equality of capture at 10% area",
+    "note": "CUDA attention backend can alter near-saturated float outputs slightly; the rank TIFF uses the exact saved scores for the selected run."
+  },
+  "original_run_note": "The original fine-tuned weights were not saved. This analysis uses the selected reconstructed checkpoint and its matching reconstructed-run metrics; it is not the original run's exact model weights.",
+  "checkpoint_best_epoch": 86,
+  "positive_fraction_percent": 100,
+  "known_positive_count": 36,
+  "all_anchor_count": 15550,
+  "target_anchor_counts": {
+    "1": 293,
+    "2": 33,
+    "3": 116,
+    "4": 114
+  },
+  "primary_legacy_per_anchor_ig": {
+    "method_file": "解释表格/legacy_per_anchor_ig/method.json",
+    "scope": "556 anchors in the union of the four target polygons, each explained by its own prospectivity logit",
+    "known_positive_count_in_scope": 31,
+    "integration_steps": 32,
+    "finite_difference_step": 0.01,
+    "hard_constraints": "held at their observed deterministic values; no attribution computed for these channels",
+    "mean_absolute_completeness_error": 0.0023280347851540543,
+    "p95_absolute_completeness_error": 0.005281925201416016,
+    "wall_time_seconds": 308.13,
+    "four_target_figure": "图件/legacy_method/03_four_targets/four_targets_4x4_IG_entity_inputs.png"
+  },
+  "rank_quantile_tiff": {
+    "path": "external_path_omitted",
+    "valid_anchor_pixels": 15550,
+    "minimum": 0.0,
+    "maximum": 0.9999356865882874,
+    "nodata": -9999.0
+  },
+  "current_model_gnnexplainer": {
+    "method_file": "解释表格/current_model_gnnexplainer/method.json",
+    "mask_table": "解释表格/current_model_gnnexplainer/per_anchor_entity_masks.csv",
+    "figure": "图件/legacy_method/02_high_mask_entities/high_mask_top25_median_contrast.png",
+    "checkpoint_repeat": 6,
+    "checkpoint_seed": 20271117,
+    "target_anchor_count": 556,
+    "entity_node_count": 598,
+    "optimized_anchor_count": 556,
+    "wall_time_seconds": 2057.83,
+    "hard_constraints": "fixed at observed values and not attributed"
+  },
+  "elapsed_seconds": 110.77
+}
